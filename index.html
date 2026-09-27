@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>rohan jha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #0D0D0D;
+    --bg2:      #141414;
+    --border:   #252525;
+    --text:     #F0F0E8;
+    --muted:    #666;
+    --gold:     #C8B400;
+    --gold-dim: #7A6E00;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 0 0;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+  }
+  nav .logo { font-weight: 700; font-size: 13px; color: var(--gold); letter-spacing: 0.02em; }
+  nav ul { list-style: none; display: flex; gap: 28px; }
+  nav ul a { color: var(--muted); text-decoration: none; font-size: 12px; transition: color .15s; }
+  nav ul a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    padding: 80px 0 64px;
+    border-bottom: 1px solid var(--border);
+  }
+  .terminal-line {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .terminal-line .prompt { color: var(--gold); }
+  .hero-name {
+    font-size: clamp(36px, 8vw, 64px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .hero-sub {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 480px;
+    line-height: 1.8;
+  }
+  .hero-sub em { color: var(--text); font-style: normal; }
+  .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: var(--gold);
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  /* SECTIONS */
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  .section-label {
+    font-size: 11px;
+    color: var(--gold-dim);
+    font-weight: 600;
+    margin-bottom: 32px;
+    letter-spacing: 0.08em;
+  }
+
+  /* PROJECTS */
+  .project {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: 8px 24px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+  }
+  .project:first-of-type { border-top: none; }
+  .project-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .project-name a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .project-name a:hover { color: var(--gold); }
+  .project-lang {
+    font-size: 11px;
+    color: var(--gold-dim);
+    white-space: nowrap;
+  }
+  .project-desc {
+    grid-column: 1 / -1;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-top: 4px;
+  }
+
+  /* STACK TABLE */
+  .stack {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 12px;
+  }
+  .stack tr { border-top: 1px solid var(--border); }
+  .stack tr:first-child { border-top: none; }
+  .stack td { padding: 12px 0; vertical-align: top; }
+  .stack td:first-child { color: var(--text); width: 140px; font-weight: 600; }
+  .stack td:last-child { color: var(--muted); font-weight: 300; }
+
+  /* CURRENTLY */
+  .now-item {
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .now-item:first-of-type { border-top: none; }
+  .now-item strong { color: var(--text); font-weight: 600; }
+
+  /* CONTACT */
+  .contact-links { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 8px; }
+  .contact-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+    transition: color .15s, border-color .15s;
+  }
+  .contact-links a:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    padding: 28px 0;
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  @media (max-width: 520px) {
+    body { font-size: 13px; }
+    nav ul { gap: 16px; }
+    .hero { padding: 52px 0 48px; }
+    .project { grid-template-columns: 1fr; }
+    .project-lang { margin-top: -4px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cursor { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">cyber-rohanjha</span>
+  <ul>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#stack">stack</a></li>
+    <li><a href="#now">now</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="terminal-line">
+    <span class="prompt">~$</span> whoami
+  </div>
+  <h1 class="hero-name">rohan jha<span class="cursor"></span></h1>
+  <p class="hero-sub">
+    CS grad. I write software <em>close to the metal</em> —<br>
+    x86-64 assembly, C, Rust, Linux.<br>
+    Systems programming is not a specialty; it's the default.
+  </p>
+</div>
+
+<section id="projects">
+  <div class="section-label">projects</div>
+
+  <div class="project">
+    <div class="project-name"><a href="https://github.com/cyber-rohanjha/math-lib-asm" target="_blank">math-lib-asm</a></div>
+    <div class="project-lang">x86-64 NASM</div>
+    <div class="project-desc">Low-level math library implementing Vec3 and Mat4x4 operations using SSE/SIMD instructions. No libc. Pure register arithmetic.</div>
+  </div>
+
+  <div class="project">
+    <div class="project-name"><a href="https://github.com/cyber-rohanjha/string-lib-asm" target="_blank">string-lib-asm</a></div>
+    <div class="project-lang">x86-64 NASM</div>
+    <div class="project-desc">Re-implementation of strlen, strcpy, strcmp, strrev, strcat using SSE instructions — understanding the standard library by rebuilding it.</div>
+  </div>
+
+  <div class="project">
+    <div class="project-name"><a href="https://github.com/cyber-rohanjha/snake-game" target="_blank">snake-game</a></div>
+    <div class="project-lang">x86-64 Assembly</div>
+    <div class="project-desc">Classic Snake written entirely in pure x86-64 assembly. Raw syscalls only. No libc, no dependencies, no safety net.</div>
+  </div>
+
+  <div class="project">
+    <div class="project-name"><a href="https://github.com/cyber-rohanjha/srep" target="_blank">srep</a></div>
+    <div class="project-lang">Rust</div>
+    <div class="project-desc">Lightweight command-line grep clone. Built to learn Rust's ownership model through something I'd actually use day to day.</div>
+  </div>
+
+  <div class="project">
+    <div class="project-name"><a href="https://github.com/cyber-rohanjha/textEditior" target="_blank">textEditior</a></div>
+    <div class="project-lang">C</div>
+    <div class="project-desc">Terminal text editor in C. Raw terminal mode, cursor movement, line editing — no ncurses.</div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="section-label">stack</div>
+  <table class="stack">
+    <tr>
+      <td>x86-64 NASM</td>
+      <td>libraries, games, OS experiments, anything where I want full control of every byte</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>systems tools, editors, networking, anything that needs to be small and fast</td>
+    </tr>
+    <tr>
+      <td>Rust</td>
+      <td>CLI utilities — safety without GC, ownership as a design constraint</td>
+    </tr>
+    <tr>
+      <td>Linux</td>
+      <td>primary environment, raw syscalls preferred over wrappers</td>
+    </tr>
+    <tr>
+      <td>C++</td>
+      <td>competitive programming, SIMD/ISPC experiments</td>
+    </tr>
+  </table>
+</section>
+
+<section id="now">
+  <div class="section-label">currently</div>
+
+  <div class="now-item">
+    <strong>Custom OS</strong> — bootloader in Assembly, kernel in C + Rust. Building it to understand what an OS actually does rather than what the textbook says it does.
+  </div>
+  <div class="now-item">
+    <strong>LAN chat app</strong> — raw sockets in C, no framework. Register, search users, create rooms. Linux and macOS first.
+  </div>
+  <div class="now-item">
+    <strong>Competitive programming</strong> — Codeforces. Graph theory and segment trees right now.
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label">contact</div>
+  <div class="contact-links">
+    <a href="https://github.com/cyber-rohanjha" target="_blank">github</a>
+    <a href="mailto:rohanjha@example.com">email</a>
+  </div>
+</section>
+
+<footer>
+  built with one HTML file &nbsp;·&nbsp; no framework &nbsp;·&nbsp; no build step
+</footer>
+
+</body>
+</html>
