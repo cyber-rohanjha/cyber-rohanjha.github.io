@@ -172,6 +172,29 @@
     font-weight: 300;
   }
 
+  /* BADGE */
+  .badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-left: 8px;
+    letter-spacing: 0.04em;
+  }
+  .badge.done {
+    background: #1a2a1a;
+    color: #4a9a4a;
+  }
+  .badge.wip {
+    background: #2a2000;
+    color: #C8B400;
+  }
+  .badge.abandoned {
+    background: #1a1a1a;
+    color: #555;
+  }
+
   @media (max-width: 520px) {
     body { font-size: 13px; }
     nav ul { gap: 16px; }
@@ -213,30 +236,35 @@
 
   <div class="project">
     <div class="project-name"><a href="https://github.com/cyber-rohanjha/math-lib-asm" target="_blank">math-lib-asm</a></div>
+    <span class="badge done">done</span>
     <div class="project-lang">x86-64 NASM</div>
     <div class="project-desc">Low-level math library implementing Vec3 and Mat4x4 operations using SSE/SIMD instructions. No libc. Pure register arithmetic.</div>
   </div>
 
   <div class="project">
     <div class="project-name"><a href="https://github.com/cyber-rohanjha/string-lib-asm" target="_blank">string-lib-asm</a></div>
+    <span class="badge done">done</span>
     <div class="project-lang">x86-64 NASM</div>
     <div class="project-desc">Re-implementation of strlen, strcpy, strcmp, strrev, strcat using SSE instructions — understanding the standard library by rebuilding it.</div>
   </div>
 
   <div class="project">
     <div class="project-name"><a href="https://github.com/cyber-rohanjha/snake-game" target="_blank">snake-game</a></div>
+    <span class="badge done">done</span>
     <div class="project-lang">x86-64 Assembly</div>
     <div class="project-desc">Classic Snake written entirely in pure x86-64 assembly. Raw syscalls only. No libc, no dependencies, no safety net.</div>
   </div>
 
   <div class="project">
     <div class="project-name"><a href="https://github.com/cyber-rohanjha/srep" target="_blank">srep</a></div>
+    <span class="badge done">done</span>
     <div class="project-lang">Rust</div>
     <div class="project-desc">Lightweight command-line grep clone. Built to learn Rust's ownership model through something I'd actually use day to day.</div>
   </div>
 
   <div class="project">
     <div class="project-name"><a href="https://github.com/cyber-rohanjha/textEditior" target="_blank">textEditior</a></div>
+    <span class="badge done">done</span>
     <div class="project-lang">C</div>
     <div class="project-desc">Terminal text editor in C. Raw terminal mode, cursor movement, line editing — no ncurses.</div>
   </div>
@@ -273,12 +301,15 @@
 
   <div class="now-item">
     <strong>Custom OS</strong> — bootloader in Assembly, kernel in C + Rust. Building it to understand what an OS actually does rather than what the textbook says it does.
+    <span class="badge wip">[WIP]</span>
   </div>
   <div class="now-item">
     <strong>LAN chat app</strong> — raw sockets in C, no framework. Register, search users, create rooms. Linux and macOS first.
+    <span class="badge wip">[WIP]</span>
   </div>
   <div class="now-item">
     <strong>Competitive programming</strong> — Codeforces. Graph theory and segment trees right now.
+    <span class="badge wip">[WIP]</span>
   </div>
 </section>
 
@@ -286,12 +317,12 @@
   <div class="section-label">contact</div>
   <div class="contact-links">
     <a href="https://github.com/cyber-rohanjha" target="_blank">github</a>
-    <a href="prodjhaswan01@gmail.com">email</a>
+    <a href="mailto:prodjhaswan01@gmail.com">email</a>
   </div>
 </section>
 
 <footer>
-  built with one HTML file &nbsp;·&nbsp; no framework &nbsp;·&nbsp; no build step
+  [process exited with code 0]
 </footer>
 
 </body>
